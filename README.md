@@ -31,20 +31,28 @@ Here are some generic considerations that could be be interesting to consider to
 ### Code Quality and Readability:
 
 Refactor repeated logic, such as retry mechanisms and pagination handling, into reusable utility functions. This would reduce redundancy and improve maintainability.
+
 Introduce TypeScript or JSDoc comments to define data structures (e.g., meeting objects, attendee objects) and provide better type safety and documentation.
+
 Implement consistent error handling across the codebase using custom error classes to ensure errors are logged and propagated uniformly.
+
 Create centralized logging for Error, Warning and Info logs.
 
 ### Project Architecture:
 
 Adopt a modular architecture by grouping related functionalities into separate files or services (e.g., MeetingService, ContactService, etc.). This would isolate concerns and make the project easier to navigate.
+
 Create subfolders for each abstraction concern as well.
+
 Introduce dependency injection to manage external services (e.g., the HubSpot client) more flexibly, making testing and swapping dependencies simpler.
+
 Use environment variables or a configuration manager to handle settings like API keys, retry limits, and endpoint URLs, ensuring they are not hardcoded.
 
 
 ### Code Performance:
 
 Optimize API calls by batching requests wherever possible. For instance, fetching attendees for multiple meetings in a single request (if supported) would reduce latency and network overhead.
+
 Introduce caching (e.g., using Redis) to store frequently accessed or slow-to-fetch data, such as attendee information, to reduce API load.
+
 Parallelize independent operations using asynchronous processing whenever possible.
